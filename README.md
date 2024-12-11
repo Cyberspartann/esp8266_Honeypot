@@ -1,8 +1,9 @@
-ESP8266 Honeypot: The Ultimate Wi-Fi Network Interceptor & Device Monito
+ESP8266 Honeypot: The Ultimate Wi-Fi Network Interceptor & Device Monitor
 
 ESP8266 Honeypot is an advanced device designed to intercept Wi-Fi network traffic and monitor devices. It captures login credentials, device information, and network details by mimicking popular login pages (like Google’s). It records sensitive data such as usernames, passwords, MAC addresses, device types, signal strength (RSSI), and more.
 
 The device offers a real-time admin panel to monitor all connected devices, login attempts, and analyze captured data. Whether you are a security researcher or network administrator, the ESP8266 Honeypot gives you deep insights into every device connected to your network.
+
 
 
 
@@ -44,6 +45,7 @@ Works on Various Devices: The device is compatible with various platforms, suppo
 
 
 
+
 Perfect For:
 
 Security Researchers: Track and analyze login attempts and device behavior on networks.
@@ -51,6 +53,7 @@ Security Researchers: Track and analyze login attempts and device behavior on ne
 Network Administrators: Gain deep visibility into who’s connected to your network and monitor devices in real-time.
 
 Educational Purposes: Learn more about network security and the potential vulnerabilities of Wi-Fi networks.
+
 
 
 
@@ -89,6 +92,5 @@ Choose your ESP8266 board under Tools > Board (e.g., NodeMCU 1.0) and upload the
 
 
 
+
 Once set up, you’ll have a fully functional ESP8266 Honeypot device, capable of monitoring and capturing valuable network information with a sleek, professional interface. Get started today and dive into the world of network security like never before!
-
-
